@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-      <h1 className="italic text-9xl text-center font-bold">Hello Jefferson Garcia</h1>
+      <h3 className="text-center font-bold">John Jhovir A. Sorila</h3>
     </>
   )
 }
