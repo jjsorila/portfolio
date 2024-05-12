@@ -3,12 +3,30 @@
 @tailwind utilities;
 
 @layer base {
+  .about-dark {
+    background-image: url(/dark-bg-bottom.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .about-light {
+    background-image: url(/light-bg-bottom.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  /* * {
+    @apply transition ease-in-out duration-500;
+  } */
+
   h1 {
     @apply text-5xl;
   }
+
   h2 {
     @apply text-4xl;
   }
+
   h3 {
     @apply text-3xl;
   }
