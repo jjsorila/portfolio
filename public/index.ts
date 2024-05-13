@@ -1,0 +1,1 @@
+export const lang = await import(`./dark-bg-bottom.png`, { assert: { type: "png" } })
