@@ -8,7 +8,7 @@
   }
 
   * {
-    @apply transition ease-in-out duration-500;
+    @apply transition ease-in-out duration-500 scroll-smooth;
   }
 
   h1 {

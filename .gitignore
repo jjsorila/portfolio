@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+main-color.txt
+to-add-later.txt
 
 # Editor directories and files
 .vscode/*
