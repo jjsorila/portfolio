@@ -77,7 +77,7 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
 
   const toggleDarkMode = useCallback(() => {
     localStorage.setItem("ui", JSON.stringify(!ui));
-    setUi((prev) => !prev);
+    if(setUi != null) setUi((prev) => !prev)
   }, []);
 
   const changeActive = useCallback((e: React.MouseEvent<HTMLLabelElement>) => {
