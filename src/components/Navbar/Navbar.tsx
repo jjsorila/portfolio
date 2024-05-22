@@ -106,7 +106,7 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
   return (
     <nav
       id="navbar"
-      className="z-[1] bg-violet-50 dark:bg-slate-900 flex px-[10rem] py-[1.5rem] max-w-[2048px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
+      className="z-[1] light-mode dark:dark-mode flex px-[10rem] py-[1.5rem] max-w-[2048px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
     >
       <div className="flex-1 flex justify-start items-center gap-[2rem]">
         <img

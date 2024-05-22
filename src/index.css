@@ -11,6 +11,14 @@
     @apply transition ease-in-out duration-500 scroll-smooth;
   }
 
+  .dark-mode {
+    @apply bg-neutral-900
+  }
+
+  .light-mode {
+    @apply bg-violet-50
+  }
+
   h1 {
     @apply text-5xl;
   }

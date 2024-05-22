@@ -11,7 +11,7 @@ const App = () => {
   }, [ui]);
 
   return (
-    <div id="main" className="bg-violet-50 dark:bg-slate-900">
+    <div id="main" className="bg-violet-50 dark:dark-mode">
       <Navbar ui={ui} setUi={setUi} />
       <About ui={ui} />
       <Skills ui={ui} />
