@@ -5,8 +5,6 @@ const App = () => {
   const [ui, setUi] = useState<boolean>(JSON.parse(localStorage.getItem("ui") ?? "false"));
 
   useLayoutEffect(() => {
-    !document.querySelector("html")?.classList.contains("scroll-smooth") ? document.querySelector("html")?.classList.add("scroll-smooth") : null
-
     !ui ? document.querySelector("html")?.classList.add("dark") : document.querySelector("html")?.classList.remove("dark");
   }, [ui]);
 
