@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, memo } from "react";
+import React, { useCallback, useState, useEffect, memo, forwardRef } from "react";
 import type {
   TChoices,
   TNavbarProps,
@@ -6,7 +6,8 @@ import type {
 import LightLogo from "/images/jjs-light.png";
 import DarkLogo from "/images/jjs-dark.png";
 
-const Navbar = ({ ui, setUi }: TNavbarProps) => {
+const Navbar = forwardRef(({ ui, setUi }: TNavbarProps, contactRef: HTMLLabelElement | any) => {
+  
   const [choices, setChoices] = useState<TChoices[]>([
     {
       title: "ABOUT",
@@ -29,51 +30,38 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
       selected: false,
     },
   ]);
-  const autoChange = choices.find((v) => v.selected) as TChoices;
 
   useEffect(() => {
-    const aboutDiv = document.getElementById("about-container")
-      ?.offsetHeight as number;
-    const skillsDiv =
-      aboutDiv +
-      (document.getElementById("skills-container")?.offsetHeight as number);
-    const projectsDiv =
-      skillsDiv +
-      (document.getElementById("projects-container")?.offsetHeight as number);
-    const contactDiv =
-      projectsDiv +
-      (document.getElementById("contact-container")?.offsetHeight as number);
-    let current = "";
+    const sections = document.querySelectorAll("div.section")
 
-    const listener = function () {
-      const eye = window.scrollY + 200;
+    let observer: IntersectionObserver | null = new IntersectionObserver((entries) => {
 
-      if (eye < aboutDiv) {
-        current = "about";
-      } else if (eye < skillsDiv) {
-        current = "skills";
-      } else if (eye < projectsDiv) {
-        current = "projects";
-      } else if (eye < contactDiv) {
-        current = "contact";
-      }
+      entries.forEach(el => {
+        const currentVisible = el.isIntersecting && el.target.id.split("-")[0]
 
-      if (current != autoChange.id) {
-        setChoices((prev) =>
-          prev.map((v) => ({
-            title: v.title,
-            id: v.id,
-            selected: current == v.id,
+        currentVisible && setChoices(prev => {
+          console.log("CHANGED")
+          return prev.map(choice => ({
+            title: choice.title,
+            id: choice.id,
+            selected: currentVisible == choice.id
           }))
-        );
-      }
-    };
-    window?.addEventListener("scroll", listener);
+        })
+
+      })
+    },
+    {
+      threshold: 0.5
+    })
+
+    sections.forEach(el => observer?.observe(el))
 
     return () => {
-      window?.removeEventListener("scroll", listener);
-    };
-  }, [autoChange]);
+      sections.forEach(el => observer?.unobserve(el))
+      observer?.disconnect()
+      observer = null
+    }
+  }, []);
 
   const toggleDarkMode = useCallback(() => {
     localStorage.setItem("ui", JSON.stringify(!ui));
@@ -90,7 +78,7 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
       window.scrollTo(
         0,
         (document.getElementById(`${chosenId}-container`)
-          ?.offsetTop as number) - navbarHeight
+          ?.offsetTop as number) - (navbarHeight - 50)
       );
     }
 
@@ -106,7 +94,7 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
   return (
     <nav
       id="navbar"
-      className="z-[1] light-mode dark:dark-mode flex px-[10rem] py-[1.5rem] max-w-[2048px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
+      className="z-[100] light-mode dark:dark-mode flex px-5 min-[1280px]:px-[8rem] py-[1.5rem] max-w-[2048px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
     >
       <div className="flex-1 flex justify-start items-center gap-[2rem]">
         <img
@@ -114,14 +102,15 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
           onClick={toggleDarkMode}
           src={ui ? DarkLogo : LightLogo}
         />
-        <h3 className="font-bold h-fit dark:text-white">JJ.S</h3>
+        <h3 className="font-bold h-fit dark:text-white text-3xl">JJ.S</h3>
       </div>
       <div className="flex-1">
         <ul className="relative list-none flex w-[100%] h-[100%] justify-end gap-[4rem] items-center font-semibold text-sl">
-          {choices.map((v: TChoices) => {
+          {choices.map((v: TChoices, i) => {
             return (
-              <>
+              <React.Fragment key={i}>
                 <input
+                  readOnly
                   type="checkbox"
                   className={`hidden`}
                   checked={v.selected}
@@ -134,17 +123,18 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
                     } p-2 rounded hover:active-nav text-base cursor-pointer`}
                     htmlFor={v.id}
                     onClick={changeActive}
+                    ref={v.id === "contact" ? contactRef : undefined}
                   >
                     {v.title}
                   </label>
                 </li>
-              </>
+              </React.Fragment>
             );
           })}
         </ul>
       </div>
     </nav>
   );
-};
+})
 
 export default memo(Navbar);

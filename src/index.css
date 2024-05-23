@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 @layer base {
+
+  .completed {
+    @apply bg-cyan-400;
+  }
+
+  @keyframes glow-light {
+    from {
+      filter: drop-shadow(0px 0px 80px #2e1065);
+    }
+    to {
+      filter: drop-shadow(0px 0px 30px #2e1065);
+    }
+  }
+
+  @keyframes glow-dark {
+    from {
+      filter: drop-shadow(0px 0px 80px #22d3ee);
+    }
+    to {
+      filter: drop-shadow(0px 0px 30px #22d3ee);
+    }
+  }
+
+  .animate-glow-dark {
+    animation: glow-dark 2s linear infinite alternate;
+  }
+
+  .animate-glow-light {
+    animation: glow-light 2s linear infinite alternate;
+  }
+
   .active-nav {
     @apply dark:bg-cyan-400 dark:text-slate-900 text-white bg-violet-950
   }
@@ -19,7 +50,7 @@
     @apply bg-violet-50
   }
 
-  h1 {
+  /* h1 {
     @apply text-5xl;
   }
 
@@ -29,7 +60,7 @@
 
   h3 {
     @apply text-3xl;
-  }
+  } */
 
   @font-face {
     font-family: "Montserrat";

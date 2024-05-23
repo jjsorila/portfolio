@@ -5,7 +5,7 @@ import AboutBGDarkBot from "/dark-bg-bottom.png"
 
 const Projects = ({ ui }: TProjectsProps) => {
   return (
-    <div id="projects-container" className={`relative max-w-[2048px] mx-auto h-[88vh] p-5`}>
+    <div id="projects-container" className={`section relative max-w-[2048px] mx-auto h-[800px] p-5`}>
         <img className={`z-0 absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 w-[100%] h-[100%] ${ui ? "opacity-100" : "opacity-0"}`} 
         src={AboutBGLightBot} />
         <img className={`z-0 absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 w-[100%] h-[100%] ${ui ? "opacity-0" : "opacity-100"}`} 
