@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, memo, forwardRef } from "react";
+import React, { useCallback, useState, useEffect, memo } from "react";
 import type {
   TChoices,
   TNavbarProps,
@@ -6,7 +6,7 @@ import type {
 import LightLogo from "/images/jjs-light.png";
 import DarkLogo from "/images/jjs-dark.png";
 
-const Navbar = forwardRef(({ ui, setUi }: TNavbarProps, contactRef: HTMLLabelElement | any) => {
+const Navbar = ({ ui, setUi }: TNavbarProps) => {
   
   const [choices, setChoices] = useState<TChoices[]>([
     {
@@ -40,7 +40,6 @@ const Navbar = forwardRef(({ ui, setUi }: TNavbarProps, contactRef: HTMLLabelEle
         const currentVisible = el.isIntersecting && el.target.id.split("-")[0]
 
         currentVisible && setChoices(prev => {
-          console.log("CHANGED")
           return prev.map(choice => ({
             title: choice.title,
             id: choice.id,
@@ -94,7 +93,7 @@ const Navbar = forwardRef(({ ui, setUi }: TNavbarProps, contactRef: HTMLLabelEle
   return (
     <nav
       id="navbar"
-      className="z-[100] light-mode dark:dark-mode flex px-5 min-[1280px]:px-[8rem] py-[1.5rem] max-w-[2048px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
+      className="z-[100] light-mode dark:dark-mode flex px-5 min-[1200px]:px-14 min-[1400px]:px-32 min-[1600px]:px-60 py-[1.5rem] max-w-[1600px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
     >
       <div className="flex-1 flex justify-start items-center gap-[2rem]">
         <img
@@ -123,7 +122,6 @@ const Navbar = forwardRef(({ ui, setUi }: TNavbarProps, contactRef: HTMLLabelEle
                     } p-2 rounded hover:active-nav text-base cursor-pointer`}
                     htmlFor={v.id}
                     onClick={changeActive}
-                    ref={v.id === "contact" ? contactRef : undefined}
                   >
                     {v.title}
                   </label>
@@ -135,6 +133,6 @@ const Navbar = forwardRef(({ ui, setUi }: TNavbarProps, contactRef: HTMLLabelEle
       </div>
     </nav>
   );
-})
+}
 
 export default memo(Navbar);
