@@ -3,35 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-
-  textarea {
-    @apply w-full resize-none text-white h-48 border bg-transparent px-4 py-3 rounded-lg border-solid border-[#414141] dark:focus:border-cyan-400 my-4;
-  }
-  textarea:focus {
-    outline: none;
-  }
-
-  .subscribe {
-    @apply relative h-fit max-w-[500px] dark:bg-neutral-800 rounded p-5 after:absolute after:content-[""] after:w-0 after:h-0 after:border-l-0 after:border-r-[10px] after:border-b-[10px] dark:after:border-b-cyan-400 after:border-x-transparent after:border-solid after:-right-2.5 after:bottom-[18px] shadow-xl shadow-cyan-400;
-  }
-  .subscribe p {
-    @apply text-center text-xl font-bold dark:text-white tracking-[4px] leading-7;
-  }
-  .subscribe input {
-    @apply absolute border-b-neutral-300 w-[82%] transition-all duration-[0.25s] ease-[ease] p-2.5 border-[none] border-b border-solid bottom-[30px] dark:focus:border-b-cyan-400 focus:border-b focus:border-solid dark:text-white text-center;
-    background: transparent;
-  }
-  .subscribe input:focus {
-    outline: none;
-  }
-  .subscribe .submit-btn {
-    @apply absolute dark:bg-cyan-400 text-white dark:text-black inline-block text-xs font-bold tracking-[5px] cursor-pointer transition-all duration-[0.25s] ease-[ease] shadow-[-5px_6px_20px_0px_rgba(26,26,26,0.4)] px-[25px] py-3 rounded-tr-none rounded-br-none rounded-[30px] -right-2.5 -bottom-5 hover:shadow-[-5px_6px_20px_0px_rgba(88,88,88,0.569)];
-  }
-
-  .completed {
-    @apply bg-cyan-400;
-  }
-
   @keyframes glow-light {
     from {
       filter: drop-shadow(0px 0px 80px #2e1065);
@@ -73,18 +44,6 @@
   .light-mode {
     @apply bg-violet-50
   }
-
-  /* h1 {
-    @apply text-5xl;
-  }
-
-  h2 {
-    @apply text-4xl;
-  }
-
-  h3 {
-    @apply text-3xl;
-  } */
 
   @font-face {
     font-family: "Montserrat";

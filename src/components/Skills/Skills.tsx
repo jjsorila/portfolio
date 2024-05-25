@@ -1,6 +1,5 @@
-import { memo } from "react";
-import { motion } from "framer-motion";
-import type { TSkillsProps } from "./Skills.types";
+import { memo, useMemo } from "react";
+import type { TSkillsProps, TCardsProps } from "./Skills.types";
 import AboutBGLightTop from "/light-bg-top.png";
 import AboutBGDarkTop from "/dark-bg-top.png";
 import HtmlIcon from "/images/html.svg"
@@ -15,6 +14,97 @@ import VbIcon from "/images/vb.svg"
 import PhpIcon from "/images/php.svg"
 import MysqlIcon from "/images/mysql.svg"
 import MongoIcon from "/images/mongodb.svg"
+import Cards from "src/components/Skills/Cards";
+
+const SkillCards: Array<TCardsProps> = [
+  {
+    content: [{
+      img: PhpIcon,
+      zIndex: 1,
+      position: "left-0"
+    }],
+    percentage: "40%"
+  },
+  {
+    content: [{
+      img: VbIcon,
+      zIndex: 1,
+      position: "left-0"
+    }],
+    percentage: "45%"
+  },
+  {
+    content: [{
+      img: JavaIcon,
+      zIndex: 1,
+      position: "left-0"
+    }],
+    percentage: "43%"
+  },
+  {
+    content: [{
+      img: CsharpIcon,
+      zIndex: 1,
+      position: "left-0"
+    }],
+    percentage: "41%"
+  },
+  {
+    content: [
+      {
+        img: MysqlIcon,
+        zIndex: 2,
+        position: "left-0"
+      },
+      {
+        img: MongoIcon,
+        zIndex: 1,
+        position: "-left-[10px]"
+      }
+    ],
+    percentage: "52%"
+  },
+  {
+    content: [
+      {
+        img: ReactIcon,
+        zIndex: 3,
+        position: "left-0"
+      },
+      {
+        img: ExpressIcon,
+        zIndex: 2,
+        position: "-left-[10px]"
+      },
+      {
+        img: FasifyIcon,
+        zIndex: 1,
+        position: "-left-[20px]"
+      }
+    ],
+    percentage: "57%"
+  },
+  {
+    content: [
+      {
+        img: HtmlIcon,
+        zIndex: 3,
+        position: "left-0"
+      },
+      {
+        img: CssIcon,
+        zIndex: 2,
+        position: "-left-[10px]"
+      },
+      {
+        img: JsIcon,
+        zIndex: 1,
+        position: "-left-[20px]"
+      }
+    ],
+    percentage: "60%"
+  }
+]
 
 const Skills = ({ ui }: TSkillsProps) => {
   return (
@@ -37,157 +127,11 @@ const Skills = ({ ui }: TSkillsProps) => {
 
       <div className="relative flex flex-wrap-reverse gap-8 lg:gap-16">
 
-        {/* PHP */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-white relative z-[3] outline dark:outline-cyan-400 outline-violet-700" src={PhpIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-full rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "40%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                <span className="text-md dark:text-black text-white font-bold">
-                40%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* VB.NET */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-white relative z-[3] outline dark:outline-cyan-400 outline-violet-700" src={VbIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-full rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "45%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                <span className="text-md dark:text-black text-white font-bold">
-                45%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* JAVA */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-white relative z-[3] outline dark:outline-cyan-400 outline-violet-700" src={JavaIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-full rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "43%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                <span className="text-md dark:text-black text-white font-bold">
-                43%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* C# */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-white relative z-[3] outline dark:outline-cyan-400 outline-violet-700" src={CsharpIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-full rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "41%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                <span className="text-md dark:text-black text-white font-bold">
-                41%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* MYSQL/MONGODB */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-white p-1 relative z-[2] outline dark:outline-cyan-400 outline-violet-700" src={MysqlIcon} />
-            <img className="block w-[40px] h-[40px] rounded-full bg-white relative z-[1] left-[-10px] outline dark:outline-cyan-400 outline-violet-700" src={MongoIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-full rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "52%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                <span className="text-md dark:text-black text-white font-bold">
-                52%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* REACTJS/EXPRESSJS/FASTIFY */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-white p-1 relative z-[3] outline dark:outline-cyan-400 outline-violet-700" src={ReactIcon} />
-            <img className="block w-[40px] h-[40px] rounded-full bg-white p-1 relative left-[-10px] z-[2] outline dark:outline-cyan-400 outline-violet-700" src={ExpressIcon} />
-            <img className="block w-[40px] h-[40px] rounded-full bg-white p-1 relative left-[-20px] z-[1] outline dark:outline-cyan-400 outline-violet-700" src={FasifyIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-4 rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "57%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-              <span className="text-md dark:text-black text-white font-bold">
-                57%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* HTML/CSS/JS */}
-        <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
-          <div className="p-5 flex justify-center items-center">
-            <img className="block w-[40px] h-[40px] rounded-full bg-[#E34F26] relative z-[3] outline dark:outline-cyan-400 outline-violet-700" src={HtmlIcon} />
-            <img className="block w-[40px] h-[40px] rounded-full bg-[#1172B8] relative left-[-10px] z-[2] outline dark:outline-cyan-400 outline-violet-700" src={CssIcon} />
-            <img className="block w-[40px] h-[40px] rounded-full bg-[#F5DE19] relative left-[-20px] z-[1] outline dark:outline-cyan-400 outline-violet-700" src={JsIcon} />
-          </div>
-          <div className="px-5 pb-5">
-            <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-5">
-              <motion.div
-                className="dark:bg-cyan-400 bg-violet-700 overflow-hidden h-4 rounded-full flex justify-end items-center pr-2"
-                initial={{ width: 0 }}
-                whileInView={{ width: "60%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-              <span className="text-md dark:text-black text-white font-bold">
-                60%
-              </span>
-              </motion.div>
-            </div>
-          </div>
-        </div>
+        {useMemo(() => {
+          return SkillCards.map((props, index) => (
+            <Cards key={index} content={props.content} percentage={props.percentage} />
+          ))
+        }, [])}
 
       </div>
 

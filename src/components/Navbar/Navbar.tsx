@@ -15,7 +15,7 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
       selected: true,
     },
     {
-      title: "SKILLS",
+      title: "TECHS",
       id: "skills",
       selected: false,
     },
@@ -50,7 +50,7 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
       })
     },
     {
-      threshold: 0.5
+      threshold: 0.3
     })
 
     sections.forEach(el => observer?.observe(el))
