@@ -63,7 +63,7 @@ const App = () => {
   }, [])
 
   return (
-    <div id="main" className="bg-violet-50 dark:bg-[#191819] relative">
+    <div id="main" className="light-mode dark:dark-mode relative">
       <Navbar ui={ui} setUi={setUi} toggleSideBar={toggleSideBar} choices={choices} setChoices={setChoices} changeActive={changeActive} />
       <About ui={ui} />
       <Skills ui={ui} />

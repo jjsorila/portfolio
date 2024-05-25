@@ -30,7 +30,7 @@
   }
 
   .active-nav {
-    @apply dark:bg-cyan-400 dark:text-slate-900 text-white bg-violet-950
+    @apply dark:bg-cyan-400 dark:text-slate-900 text-white bg-violet-950 !important;
   }
 
   .active-sidenav,.sidenav:hover {
@@ -42,15 +42,15 @@
   }
 
   * {
-    @apply transition ease-in-out duration-500 scroll-smooth;
+    @apply transition ease-in-out duration-300 scroll-smooth;
   }
 
   .dark-mode {
-    @apply bg-[#191819]
+    @apply bg-[#191819] !important;
   }
 
   .light-mode {
-    @apply bg-violet-50
+    @apply bg-violet-50 !important;
   }
 
   @font-face {

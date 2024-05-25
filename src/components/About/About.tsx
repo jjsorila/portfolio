@@ -7,15 +7,15 @@ import { TypeAnimation } from 'react-type-animation';
 
 const About = ({ ui }: TAboutProps) => {
   return (
-    <div id="about-container" className={`section relative max-w-[1600px] mx-auto min-h-[800px] flex justify-between max-[1200px]:justify-center pt-16 px-5 min-[1200px]:px-14 min-[1400px]:px-32 min-[1600px]:px-60`}>
+    <div id="about-container" className={`section transition-all ease-in-out duration-300 relative max-w-[1600px] mx-auto min-h-[800px] flex justify-between max-[1200px]:justify-center pt-16 px-5 min-[1200px]:px-14 min-[1400px]:px-32 min-[1600px]:px-60`}>
       <img className={`z-0 absolute top-0 left-0 transition-opacity duration-500 w-full h-full ${ui ? "opacity-100" : "opacity-0"}`} 
       src={AboutBGLightBot} />
       <img className={`z-0 absolute top-0 left-0 transition-opacity duration-500 w-full h-full ${ui ? "opacity-0" : "opacity-100"}`} 
       src={AboutBGDarkBot} />
 
-      <div className="w-6/12 relative flex max-[1200px]:grow flex-col justify-center gap-5 h-[500px]">
+      <div className="w-6/12 relative flex max-[1200px]:grow flex-col justify-center gap-5 h-[500px] transition-all ease-in-out duration-300">
 
-        <h1 className="dark:text-white text-black text-xl max-[1200px]:text-center font-medium">HELLO, I'M JJ SORILA</h1>
+        <h1 className="transition-all ease-in-out duration-300 dark:text-white text-black text-xl max-[1200px]:text-center font-medium">HELLO, I'M JJ SORILA</h1>
         <TypeAnimation
           sequence={[
             ' 40% PROGRAMMER',
@@ -33,7 +33,7 @@ const About = ({ ui }: TAboutProps) => {
           repeat={Infinity}
         />
 
-        <h1 className="dark:text-white text-black text-xl text-justify max-[1200px]:text-center leading-relaxed">
+        <h1 className="transition-all ease-in-out duration-300 dark:text-white text-black text-xl text-justify max-[1200px]:text-center leading-relaxed">
           As a recent IT graduate, I'm eager to apply my academic knowledge to real-world tech challenges, contribute to a dynamic team, and stay updated on the latest technologies in the field.
         </h1>
 
@@ -45,7 +45,7 @@ const About = ({ ui }: TAboutProps) => {
       </div>
 
 
-      <img className="block relative w-[500px] h-[500px] animate-glow-light dark:animate-glow-dark max-[1200px]:hidden" src={AboutMan} />
+      <img className="transition-all ease-in-out duration-300 block relative w-[500px] h-[500px] animate-glow-light dark:animate-glow-dark max-[1200px]:hidden" src={AboutMan} />
 
     </div>
   )

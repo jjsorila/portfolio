@@ -78,7 +78,7 @@ const Navbar = ({ ui, setUi, toggleSideBar, changeActive, choices, setChoices }:
                     <label
                       className={`${
                         v.selected ? "active-nav" : "dark:text-white"
-                      } p-2 rounded hover:active-nav text-base cursor-pointer`}
+                      } p-2 rounded hover:active-nav text-base cursor-pointer `}
                       htmlFor={v.id}
                       onClick={changeActive}
                     >
