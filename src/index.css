@@ -33,6 +33,14 @@
     @apply dark:bg-cyan-400 dark:text-slate-900 text-white bg-violet-950
   }
 
+  .active-sidenav,.sidenav:hover {
+    @apply after:-left-[35px] text-cyan-400 pl-[60px] !important;
+  }
+
+  .sidenav {
+    @apply after:content-[''] after:h-[50px] after:w-[50px] after:rotate-45 after:absolute after:-left-[100%] after:right-0 after:transition-all transition-all duration-100 after:bg-cyan-400 cursor-pointer overflow-hidden after:duration-100 after:rounded;
+  }
+
   * {
     @apply transition ease-in-out duration-500 scroll-smooth;
   }

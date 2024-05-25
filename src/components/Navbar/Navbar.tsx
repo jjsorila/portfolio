@@ -1,35 +1,13 @@
-import React, { useCallback, useState, useEffect, memo } from "react";
+import React, { useCallback, useEffect, memo, useMemo } from "react";
 import type {
   TChoices,
   TNavbarProps,
 } from "src/components/Navbar/Navbar.types";
 import LightLogo from "/images/jjs-light.png";
 import DarkLogo from "/images/jjs-dark.png";
+import { RxHamburgerMenu } from "react-icons/rx";
 
-const Navbar = ({ ui, setUi }: TNavbarProps) => {
-  
-  const [choices, setChoices] = useState<TChoices[]>([
-    {
-      title: "ABOUT",
-      id: "about",
-      selected: true,
-    },
-    {
-      title: "TECHS",
-      id: "skills",
-      selected: false,
-    },
-    {
-      title: "PROJECTS",
-      id: "projects",
-      selected: false,
-    },
-    {
-      title: "CONTACT",
-      id: "contact",
-      selected: false,
-    },
-  ]);
+const Navbar = ({ ui, setUi, toggleSideBar, changeActive, choices, setChoices }: TNavbarProps) => {
 
   useEffect(() => {
     const sections = document.querySelectorAll("div.section")
@@ -67,68 +45,49 @@ const Navbar = ({ ui, setUi }: TNavbarProps) => {
     if(setUi != null) setUi((prev) => !prev)
   }, []);
 
-  const changeActive = useCallback((e: React.MouseEvent<HTMLLabelElement>) => {
-    const el = e.target as HTMLLabelElement;
-    const navbarHeight = document.getElementById("navbar")
-      ?.offsetHeight as number;
-    const chosenId = el.getAttribute("for");
-
-    if (typeof chosenId === "string") {
-      window.scrollTo(
-        0,
-        (document.getElementById(`${chosenId}-container`)
-          ?.offsetTop as number) - (navbarHeight - 50)
-      );
-    }
-
-    setChoices((prev) =>
-      prev.map((v: TChoices) => ({
-        title: v.title,
-        id: v.id,
-        selected: chosenId == v.id,
-      }))
-    );
-  }, []);
-
   return (
     <nav
       id="navbar"
       className="z-[100] light-mode dark:dark-mode flex px-5 min-[1200px]:px-14 min-[1400px]:px-32 min-[1600px]:px-60 py-[1.5rem] max-w-[1600px] mx-auto sticky top-0 border-b-4 border-violet-950 dark:border-cyan-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm dark:bg-opacity-80"
     >
-      <div className="flex-1 flex justify-start items-center gap-[2rem]">
+      <div className="flex-1 flex max-[1000px]:justify-between justify-start items-center gap-[2rem]">
+        <RxHamburgerMenu className="h-[40px] w-[40px] dark:text-white text-black border border-black hover:shadow-violet-400 dark:border-white shadow-md p-1 rounded dark:hover:shadow-cyan-400 cursor-pointer min-[1000px]:hidden dark:bg-neutral-800 transition-all duration-100" onClick={toggleSideBar} />
+        <h3 className="font-bold h-fit dark:text-white text-2xl min-[1000px]:hidden">{choices.find(v => v.selected)?.title}</h3>
         <img
           className="w-[40px] h-[40px] object-cover rounded-full outline outline-2 dark:outline-white outline-zinc-800 outline-offset-4 cursor-pointer"
           onClick={toggleDarkMode}
           src={ui ? DarkLogo : LightLogo}
         />
-        <h3 className="font-bold h-fit dark:text-white text-3xl">JJ.S</h3>
+        <h3 className="font-bold h-fit dark:text-white text-3xl max-[1000px]:hidden">JJ.S</h3>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 max-[1000px]:hidden">
         <ul className="relative list-none flex w-[100%] h-[100%] justify-end gap-[4rem] items-center font-semibold text-sl">
-          {choices.map((v: TChoices, i) => {
-            return (
-              <React.Fragment key={i}>
-                <input
-                  readOnly
-                  type="checkbox"
-                  className={`hidden`}
-                  checked={v.selected}
-                  id={v.id}
-                />
-                <li>
-                  <label
-                    className={`${
-                      v.selected ? "active-nav" : "dark:text-white"
-                    } p-2 rounded hover:active-nav text-base cursor-pointer`}
-                    htmlFor={v.id}
-                    onClick={changeActive}
-                  >
-                    {v.title}
-                  </label>
-                </li>
-              </React.Fragment>
-            );
-          })}
+          {useMemo(() => {
+            return choices.map((v: TChoices, i) => {
+              return (
+                <React.Fragment key={i}>
+                  <input
+                    readOnly
+                    type="checkbox"
+                    className={`hidden`}
+                    checked={v.selected}
+                    id={v.id}
+                  />
+                  <li>
+                    <label
+                      className={`${
+                        v.selected ? "active-nav" : "dark:text-white"
+                      } p-2 rounded hover:active-nav text-base cursor-pointer`}
+                      htmlFor={v.id}
+                      onClick={changeActive}
+                    >
+                      {v.title}
+                    </label>
+                  </li>
+                </React.Fragment>
+              );
+            })
+          }, [choices])}
         </ul>
       </div>
     </nav>
