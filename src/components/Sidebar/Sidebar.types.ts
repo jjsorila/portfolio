@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react"
-import { TChoices } from "src/App.types"
+import type { TChoices } from "../Navbar/Navbar.types"
 
 export type TSidebarProps = {
     toggleSideBar: MouseEventHandler,

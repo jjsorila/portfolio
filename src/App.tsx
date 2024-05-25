@@ -9,21 +9,25 @@ const App = () => {
       title: "ABOUT",
       id: "about",
       selected: true,
+      icon: "fa-solid fa-address-card"
     },
     {
       title: "SKILLS",
       id: "skills",
       selected: false,
+      icon: "fa-solid fa-computer"
     },
     {
       title: "PROJECTS",
       id: "projects",
       selected: false,
+      icon: "fa-solid fa-boxes-stacked"
     },
     {
       title: "CONTACT",
       id: "contact",
       selected: false,
+      icon: "fa-solid fa-address-book"
     },
   ]);
   const [ui, setUi] = useState<boolean>(JSON.parse(localStorage.getItem("ui") ?? "false"));
@@ -48,6 +52,7 @@ const App = () => {
         title: v.title,
         id: v.id,
         selected: chosenId == v.id,
+        icon: v.icon
       }))
     )
 

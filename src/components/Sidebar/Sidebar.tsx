@@ -25,7 +25,7 @@ const Sidebar = forwardRef<HTMLInputElement, TSidebarProps>(({ toggleSideBar, ch
                     key={i}
                     onClick={changeActive}
                 >
-                    <i className="fa-solid fa-address-card transition-all duration-100 hover:text-cyan-400 mr-5"></i>
+                    <i className={`${v.icon} transition-all duration-100 hover:text-cyan-400 mr-5`}></i>
                     {v.title}
                 </h1>
                 ))

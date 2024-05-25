@@ -3,7 +3,8 @@ import React, { MouseEventHandler } from "react"
 export type TChoices = {
     title: string,
     id: string,
-    selected: boolean 
+    selected: boolean,
+    icon: string
 }
 
 export type TNavbarProps = {

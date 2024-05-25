@@ -21,7 +21,8 @@ const Navbar = ({ ui, setUi, toggleSideBar, changeActive, choices, setChoices }:
           return prev.map(choice => ({
             title: choice.title,
             id: choice.id,
-            selected: currentVisible == choice.id
+            selected: currentVisible == choice.id,
+            icon: choice.icon
           }))
         })
 
