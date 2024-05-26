@@ -45,7 +45,7 @@ const App = () => {
       window.scrollTo(0,(document.getElementById(`${chosenId}-container`)?.offsetTop as number) - (navbarHeight - 50));
     }
 
-    if(el.tagName == "H1" && collapseSide.current) collapseSide.current.checked = false
+    if((el.tagName == "H1" || el.tagName == "I") && collapseSide.current) collapseSide.current.checked = false
 
     setChoices((prev) =>
       prev.map((v: TChoices) => ({
