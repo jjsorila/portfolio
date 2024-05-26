@@ -29,7 +29,7 @@ const About = ({ ui }: TAboutProps) => {
           ]}
           wrapper="h1"
           speed={50}
-          className="text-4xl font-extrabold dark:text-white text-black max-[1200px]:text-center"
+          className="text-4xl font-extrabold dark:text-white text-black max-[1200px]:h-20 max-[1200px]:flex max-[1200px]:text-center items-center justify-center"
           repeat={Infinity}
         />
 

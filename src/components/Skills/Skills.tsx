@@ -20,7 +20,6 @@ const SkillCards: Array<TCardsProps> = [
   {
     content: [{
       img: PhpIcon,
-      zIndex: 1,
       position: "left-0"
     }],
     percentage: "40%"
@@ -28,7 +27,6 @@ const SkillCards: Array<TCardsProps> = [
   {
     content: [{
       img: VbIcon,
-      zIndex: 1,
       position: "left-0"
     }],
     percentage: "45%"
@@ -36,7 +34,6 @@ const SkillCards: Array<TCardsProps> = [
   {
     content: [{
       img: JavaIcon,
-      zIndex: 1,
       position: "left-0"
     }],
     percentage: "43%"
@@ -44,7 +41,6 @@ const SkillCards: Array<TCardsProps> = [
   {
     content: [{
       img: CsharpIcon,
-      zIndex: 1,
       position: "left-0"
     }],
     percentage: "41%"
@@ -53,13 +49,11 @@ const SkillCards: Array<TCardsProps> = [
     content: [
       {
         img: MysqlIcon,
-        zIndex: 2,
         position: "left-0"
       },
       {
         img: MongoIcon,
-        zIndex: 1,
-        position: "-left-[10px]"
+        position: "-left-[5px]"
       }
     ],
     percentage: "52%"
@@ -68,18 +62,15 @@ const SkillCards: Array<TCardsProps> = [
     content: [
       {
         img: ReactIcon,
-        zIndex: 3,
         position: "left-0"
       },
       {
         img: ExpressIcon,
-        zIndex: 2,
-        position: "-left-[10px]"
+        position: "-left-[5px]"
       },
       {
         img: FasifyIcon,
-        zIndex: 1,
-        position: "-left-[20px]"
+        position: "-left-[10px]"
       }
     ],
     percentage: "57%"
@@ -88,18 +79,15 @@ const SkillCards: Array<TCardsProps> = [
     content: [
       {
         img: HtmlIcon,
-        zIndex: 3,
         position: "left-0"
       },
       {
         img: CssIcon,
-        zIndex: 2,
-        position: "-left-[10px]"
+        position: "-left-[5px]"
       },
       {
         img: JsIcon,
-        zIndex: 1,
-        position: "-left-[20px]"
+        position: "-left-[10px]"
       }
     ],
     percentage: "60%"

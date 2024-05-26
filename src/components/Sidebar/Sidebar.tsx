@@ -30,26 +30,6 @@ const Sidebar = forwardRef<HTMLInputElement, TSidebarProps>(({ toggleSideBar, ch
                 </h1>
                 ))
               }, [choices])}
-  
-              {/* <h1 className="relative font-medium h-fit text-xl sidenav flex items-center justify-start mt-8 py-4">
-                <i className="fa-solid fa-address-card transition-all duration-100 hover:text-cyan-400 mr-5"></i>
-                ABOUT
-              </h1>
-  
-              <h1 className="relative font-medium h-fit text-xl sidenav active-sidenav flex items-center justify-start mt-12 py-4">
-                <i className="fa-solid fa-computer transition-all duration-100 hover:text-cyan-400 mr-5"></i>
-                SKILLS
-              </h1>
-  
-              <h1 className="relative font-medium h-fit text-xl sidenav flex items-center justify-start mt-12 py-4">
-                <i className="fa-solid fa-boxes-stacked transition-all duration-100 hover:text-cyan-400 mr-5"></i>
-                PROJECTS
-              </h1>
-  
-              <h1 className="relative font-medium h-fit text-xl sidenav flex items-center justify-start mt-12 py-4">
-                <i className="fa-solid fa-address-book transition-all duration-100 hover:text-cyan-400 mr-5"></i>
-                CONTACT
-              </h1> */}
 
             </div>
           </div>
