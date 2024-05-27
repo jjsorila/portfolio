@@ -44,7 +44,7 @@ const Navbar = ({ ui, setUi, toggleSideBar, changeActive, choices, setChoices }:
   const toggleDarkMode = useCallback(() => {
     localStorage.setItem("ui", JSON.stringify(!ui));
     if(setUi != null) setUi((prev) => !prev)
-  }, []);
+  }, [ui]);
 
   return (
     <nav
