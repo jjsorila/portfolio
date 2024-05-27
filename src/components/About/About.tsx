@@ -20,7 +20,7 @@ const About = ({ ui }: TAboutProps) => {
           sequence={[
             ' 40% PROGRAMMER',
             1000,
-            ' 30% FLEXIBLE WORKER',
+            ' 30% AGILE WORKER',
             1000,
             ' 20% GAMER',
             1000,
