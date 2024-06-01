@@ -14,34 +14,44 @@ import VbIcon from "/images/vb.svg"
 import PhpIcon from "/images/php.svg"
 import MysqlIcon from "/images/mysql.svg"
 import MongoIcon from "/images/mongodb.svg"
+import LaravelIcon from "/images/laravel.svg"
 import Cards from "src/components/Skills/Cards";
 
 const SkillCards: Array<TCardsProps> = [
   {
     content: [{
       img: PhpIcon,
-      position: "left-0"
+      position: "left-0",
+      alt: "PHP"
+    },
+    {
+      img: LaravelIcon,
+      position: "-left-[5px]",
+      alt: "Laravel"
     }],
-    percentage: "40%"
+    percentage: "55%"
   },
   {
     content: [{
       img: VbIcon,
-      position: "left-0"
+      position: "left-0",
+      alt: "Visual Basic"
     }],
     percentage: "45%"
   },
   {
     content: [{
       img: JavaIcon,
-      position: "left-0"
+      position: "left-0",
+      alt: "Java"
     }],
     percentage: "43%"
   },
   {
     content: [{
       img: CsharpIcon,
-      position: "left-0"
+      position: "left-0",
+      alt: "C#"
     }],
     percentage: "41%"
   },
@@ -49,11 +59,13 @@ const SkillCards: Array<TCardsProps> = [
     content: [
       {
         img: MysqlIcon,
-        position: "left-0"
+        position: "left-0",
+        alt: "MySQL"
       },
       {
         img: MongoIcon,
-        position: "-left-[5px]"
+        position: "-left-[5px]",
+        alt: "MongoDB"
       }
     ],
     percentage: "52%"
@@ -62,15 +74,18 @@ const SkillCards: Array<TCardsProps> = [
     content: [
       {
         img: ReactIcon,
-        position: "left-0"
+        position: "left-0",
+        alt: "ReactJS"
       },
       {
         img: ExpressIcon,
-        position: "-left-[5px]"
+        position: "-left-[5px]",
+        alt: "ExpressJS"
       },
       {
         img: FasifyIcon,
-        position: "-left-[10px]"
+        position: "-left-[10px]",
+        alt: "Fastify"
       }
     ],
     percentage: "57%"
@@ -79,15 +94,18 @@ const SkillCards: Array<TCardsProps> = [
     content: [
       {
         img: HtmlIcon,
-        position: "left-0"
+        position: "left-0",
+        alt: "HTML"
       },
       {
         img: CssIcon,
-        position: "-left-[5px]"
+        position: "-left-[5px]",
+        alt: "CSS"
       },
       {
         img: JsIcon,
-        position: "-left-[10px]"
+        position: "-left-[10px]",
+        alt: "JavaScript"
       }
     ],
     percentage: "60%"

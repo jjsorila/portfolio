@@ -6,7 +6,8 @@ export type TSkillsProps = {
 export type TCardsProps = {
     content: Array<{ 
         img: string, 
-        position: string 
+        position: string,
+        alt: string 
     }>,
     percentage: string
 }

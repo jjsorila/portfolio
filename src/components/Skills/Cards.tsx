@@ -8,8 +8,8 @@ const Cards = ({ content, percentage }: TCardsProps) => {
     <div className="mx-auto bg-white dark:bg-neutral-800 shadow-lg dark:shadow-cyan-400 shadow-violet-700 rounded-lg overflow-hidden grow basis-[500px]">
       <div className="p-5 flex justify-center items-center">
         {useMemo(() => {
-            return content.map(({ img, position }, index) => (
-                <img className={`w-[40px] h-[40px] rounded-full bg-white relative ${position} outline dark:outline-neutral-800 outline-violet-700`} src={img} key={index} />
+            return content.map(({ img, position, alt }, index) => (
+                <img className={`w-[40px] h-[40px] rounded-full bg-white relative ${position} outline dark:outline-neutral-800 outline-violet-700`} src={img} key={index} alt={alt} />
             ))
         }, [])}
       </div>
