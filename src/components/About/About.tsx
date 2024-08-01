@@ -33,7 +33,7 @@ const About = ({ ui }: TAboutProps) => {
         />
 
         <h1 className="transition-all ease-in-out duration-300 dark:text-white text-black text-xl text-justify max-[1200px]:text-center leading-relaxed">
-          As a recent IT graduate, I'm eager to apply my academic knowledge to real-world tech challenges, contribute to a dynamic team, and stay updated on the latest technologies in the field.
+          {"Web developer skilled in HTML, CSS, JavaScript, Backend Scripting(PHP, NodeJS), and basic WordPress and Wix. I create attractive, user-friendly websites and stay updated with the latest web development trends to bring new ideas to life."}
         </h1>
 
         <button onClick={useCallback(() => window.open("https://drive.google.com/file/d/1ge9vEpAZwGrlMsRF31Pi671VjxF9ZHlH/view?usp=drive_link"), [])} className="dark:bg-neutral-900 dark:text-cyan-400 border dark:border-cyan-400 bg-violet-950 text-white border-violet-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group w-fit max-[1200px]:mx-auto">
