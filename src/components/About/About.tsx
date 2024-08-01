@@ -18,11 +18,10 @@ const About = ({ ui }: TAboutProps) => {
         <h1 className="transition-all ease-in-out duration-300 dark:text-white text-black text-xl max-[1200px]:text-center font-medium">HELLO, I'M JJ SORILA</h1>
         <TypeAnimation
           sequence={[
-            ' 40% PROGRAMMER',
+            ' 50% 𝓦𝓮𝓫 𝓓𝓮𝓼𝓲𝓰𝓷𝓮𝓻',
             1000,
-            ' 30% AGILE WORKER',
+            ' 40% PЯӨGЯΛMMΣЯ',
             1000,
-            ' 20% GAMER',
             1000,
             ' 10% FOR YOU TO DISCOVER',
             1000
