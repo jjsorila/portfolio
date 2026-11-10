@@ -24,3 +24,4 @@ to-add-later.txt
 *.njsproj
 *.sln
 *.sw?
+.*/
